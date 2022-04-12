@@ -1,0 +1,39 @@
+roughEstimate=FALSE
+
+if [ "$1" == "-h" ]; then
+	echo ""
+	echo "This function reports the range of sequencing depth, the roughly estimated tumor fraction, and the detection limit range."
+	echo ""
+	echo "Usage: ./parameter_recommendation.sh -p \${plasma} -n \${normal} -e \${extended} -u \${uncombined} -t \${target} -g \${genome} -d \${database} -i \${id} -r \${roughEstimate}
+	-p|--plasma a BAM file of the cfDNA sequencing data
+	-n|--normal a BAM file of the normal sample sequencing data
+	-e|--extended a BAM file of the combined cfDNA reads
+	-u|--uncombined a BAM file of the cfDNA reads that are not combined
+	-t|--target a BED file of target regions
+	-g|--genome a FASTA file of the reference genome
+	-d|--database a VCF file of the positions that are blocked from mutation calling, e.g. a common SNP database
+	-i|--id a sample ID name
+	-r|--roughEstimate options are TRUE or FALSE. If TRUE, a rough tumor fraction will be estimated. Default is FALSE"
+	exit 0
+fi
+
+while [[ "$#" -gt 0 ]]; do case $1 in
+	-p|--plasma) plasma="$2"; shift;;
+	-n|--normal) normal="$2"; shift;;
+	-e|--extended) extended="$2"; shift;;
+	-u|--uncombined) uncombined="$2"; shift;;
+	-t|--target) target="$2"; shift;;
+	-g|--genome) genome="$2"; shift;;
+	-d|--database) database="$2"; shift;;
+	-i|--id) id="$2"; shift;;
+	-r|--roughEstimate) roughEstimate="$2"; shift;;
+	*) echo "Unknown parameter passed: $1"; exit 1;;
+esac; shift; done
+
+echo ""
+echo "Sample ID: $id"
+echo ""
+
+Rscript --vanilla parameter_recommend.R $plasma $normal $extended $uncombined $target $genome $database $id $roughEstimate
+
+echo ""

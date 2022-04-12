@@ -1,0 +1,53 @@
+minHold=12
+minPass=5
+
+if [ "$1" == "-h" ]; then
+	echo ""
+	echo "This function outputs a VCF file of the variant list and a number of tumor fraction."
+	echo ""
+	echo "Usage: ./variant_calling.sh -p \${plasma} -n \${normal} -e \${extended} -u \${uncombined} -t \${target} -g \${genome} -d \${database} -i \${id} -mh \${minHold} -mp \${minPass} -o \${output}
+	-p|--plasma a BAM file of the cfDNA sequencing data
+	-n|--normal a BAM file of the normal sample sequencing data
+	-e|--extended a BAM file of the combined cfDNA reads
+	-u|--uncombined a BAM file of the cfDNA reads that are not combined
+	-t|--target a BED file of target regions
+	-g|--genome a FASTA file of the reference genome
+	-d|--database a VCF file of the positions that are blocked from mutation calling, e.g. a common SNP database
+	-i|--id a sample ID name
+	-mh|--minHold a minimum number of supporting read pairs that are required for mutations in the HOLD category. Default is 12
+	-mp|--minPass a minimum number of supporting read pairs that are required for mutations in the PASS category. Default is 5
+	-o|--output an output directory for the variant list"
+	exit 0
+fi
+
+while [[ "$#" -gt 0 ]]; do case $1 in
+	-p|--plasma) plasma="$2"; shift;;
+	-n|--normal) normal="$2"; shift;;
+	-e|--extended) extended="$2"; shift;;
+	-u|--uncombined) uncombined="$2"; shift;;
+	-t|--target) target="$2"; shift;;
+	-g|--genome) genome="$2"; shift;;
+	-d|--database) database="$2"; shift;;
+	-i|--id) id="$2"; shift;;
+	-mh|--minHold) minHold="$2"; shift;;
+	-mp|--minPass) minPass="$2"; shift;;
+	-o|--output) output="$2"; shift;;
+	*) echo "Unknown parameter passed: $1"; exit 1;;
+esac; shift; done
+
+checkDir(){
+	if [ ! -e "$1" ]; then
+		echo -e "Making directory: $1"
+		mkdir -p $1
+	fi
+}
+
+checkDir $output
+
+echo ""
+echo "Sample ID: $id"
+echo ""
+
+Rscript --vanilla variant_calling.R $plasma $normal $extended $uncombined $target $genome $database $id $minHold $minPass $output
+
+echo ""
