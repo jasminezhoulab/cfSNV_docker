@@ -2,7 +2,7 @@ if [ "$1" == "-h" ]; then
 	echo ""
 	echo "This function first merges the overlapping read mates in cfDNA sequencing data and then maps raw reads from FASTQ (gzip or not) files to the reference genome"
 	echo ""
-	echo "Usage: ./getbam_align_after_merge.sh -f1 \${fastq1} -f2 \${fastq2} -g \${genome} -d \${database} -i \${id} -o \${output}
+	echo "Usage: ./cfDNAprep -f1 \${fastq1} -f2 \${fastq2} -g \${genome} -d \${database} -i \${id} -o \${output}
 	-f1|--fastq1 the 1st FASTQ file
 	-f2|--fastq2 the 2nd FASTQ file
 	-g|--genome a FASTA file of the reference genome

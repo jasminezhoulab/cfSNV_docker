@@ -2,7 +2,7 @@ if [ "$1" == "-h" ]; then
 	echo ""
 	echo "This function indexes the reference genome FASTA file."
 	echo ""
-	echo "Usage: ./generate_index.sh -g \${genome}
+	echo "Usage: ./GenerateIndex -g \${genome}
 	-g|--genome a FASTA file of the reference genome"
 	exit 0
 fi

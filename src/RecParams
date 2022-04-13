@@ -4,7 +4,7 @@ if [ "$1" == "-h" ]; then
 	echo ""
 	echo "This function reports the range of sequencing depth, the roughly estimated tumor fraction, and the detection limit range."
 	echo ""
-	echo "Usage: ./parameter_recommendation.sh -p \${plasma} -n \${normal} -e \${extended} -u \${uncombined} -t \${target} -g \${genome} -d \${database} -i \${id} -r \${roughEstimate}
+	echo "Usage: ./RecParams -p \${plasma} -n \${normal} -e \${extended} -u \${uncombined} -t \${target} -g \${genome} -d \${database} -i \${id} -r \${roughEstimate}
 	-p|--plasma a BAM file of the cfDNA sequencing data
 	-n|--normal a BAM file of the normal sample sequencing data
 	-e|--extended a BAM file of the combined cfDNA reads
