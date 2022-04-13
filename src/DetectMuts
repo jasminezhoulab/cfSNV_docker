@@ -48,6 +48,6 @@ echo ""
 echo "Sample ID: $id"
 echo ""
 
-Rscript --vanilla variant_calling.R $plasma $normal $extended $uncombined $target $genome $database $id $minHold $minPass $output
+Rscript --vanilla /usr/local/bin/variant_calling.R $plasma $normal $extended $uncombined $target $genome $database $id $minHold $minPass $output
 
 echo ""

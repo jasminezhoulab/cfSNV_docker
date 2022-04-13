@@ -34,6 +34,6 @@ echo ""
 echo "Sample ID: $id"
 echo ""
 
-Rscript --vanilla parameter_recommend.R $plasma $normal $extended $uncombined $target $genome $database $id $roughEstimate
+Rscript --vanilla /usr/local/bin/parameter_recommend.R $plasma $normal $extended $uncombined $target $genome $database $id $roughEstimate
 
 echo ""

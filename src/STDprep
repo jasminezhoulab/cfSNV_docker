@@ -35,6 +35,6 @@ echo ""
 echo "Sample ID: $id"
 echo ""
 
-Rscript --vanilla getbam_align.R $fastq1 $fastq2 $genome $database $id $output
+Rscript --vanilla /usr/local/bin/getbam_align.R $fastq1 $fastq2 $genome $database $id $output
 
 echo ""
