@@ -31,16 +31,18 @@ results <- variant_calling(
 
 cat(paste("Tumor fraction:", results$tumor.fraction))
 
-output.file <- paste0(output.dir, "/", sample.id, "_variant_list.vcf")
-cat("##fileformat=VCFv4.2", file=output.file, sep="\n")
+header.file <- paste0(output.dir, "/", sample.id, ".header")
+cat("##fileformat=VCFv4.2", file=header.file, sep="\n")
 time.today <- strsplit(strsplit(toString(Sys.time()), " ")[[1]][1], "-")[[1]]
-cat(paste0("##fileDate=", time.today[1], time.today[2], time.today[3]), file=output.file, append=TRUE)
-cat(paste0("##source=", sample.id), file=output.file, append=TRUE)
-cat(paste0("##reference=", reference), file=output.file, append=TRUE)
-cat('##INFO=<ID=VAF,Number=1,Type=Float,Description="Variant Allele Frequency">', file=output.file, append=TRUE)
-cat('##FILTER=<ID=ID,Description="PASS if this position has passed all filters">', file=output.file, append=TRUE)
+cat(paste0("##fileDate=", time.today[1], time.today[2], time.today[3]), file=header.file, append=TRUE, sep="\n")
+cat(paste0("##source=", sample.id), file=header.file, append=TRUE, sep="\n")
+cat(paste0("##reference=", reference), file=header.file, append=TRUE, sep="\n")
+cat('##INFO=<ID=VAF,Number=1,Type=Float,Description="Variant Allele Frequency">', file=header.file, append=TRUE, sep="\n")
+cat('##FILTER=<ID=ID,Description="PASS if this position has passed all filters">', file=header.file, append=TRUE, sep="\n")
+
+output.file <- paste0(output.dir, "/", sample.id, ".table")
 colnames(results$variant.list) <- c("#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO")
-write.table(results$variant.list, output.file, append=TRUE, row.names=FALSE, sep="\t", quote=FALSE)
+write.table(results$variant.list, output.file, row.names=FALSE, sep="\t", quote=FALSE)
 end <- Sys.time()
 
 write(paste("variant_calling", sample.id, end-start), file="timing.txt", append=TRUE)
