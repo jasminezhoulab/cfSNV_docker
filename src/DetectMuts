@@ -54,7 +54,7 @@ header="${output}/${id}.header"
 table="${output}/${id}.table"
 vcf="${output}/${id}_variant_list.vcf"
 cat $header $table > $vcf
-rm -f header
-rm -f table
+rm -f $header
+rm -f $table
 
 echo ""
