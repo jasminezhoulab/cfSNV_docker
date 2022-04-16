@@ -21,7 +21,7 @@ bedtools.dir <- '/usr/local/bin/bedtools'
 java.dir <- 'java'
 python.dir <- '/usr/local/bin/python'
 
-start <- Sys.time()
+#start <- Sys.time()
 results <- variant_calling(
   plasma.unmerged, normal,
   plasma.merged.extendedFrags, plasma.merge.notCombined,
@@ -43,6 +43,6 @@ cat('##FILTER=<ID=ID,Description="PASS if this position has passed all filters">
 output.file <- paste0(output.dir, "/", sample.id, ".table")
 colnames(results$variant.list) <- c("#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO")
 write.table(results$variant.list, output.file, row.names=FALSE, sep="\t", quote=FALSE)
-end <- Sys.time()
+#end <- Sys.time()
 
-write(paste("variant_calling", sample.id, end-start), file="timing.txt", append=TRUE)
+#write(paste("variant_calling", sample.id, end-start), file="timing.txt", append=TRUE)

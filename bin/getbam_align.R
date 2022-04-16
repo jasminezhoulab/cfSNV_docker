@@ -16,8 +16,8 @@ bedtools.dir <- '/usr/local/bin/bedtools'
 GATK.dir <- '/usr/local/bin/GenomeAnalysisTK.jar'	
 bwa.dir <- '/usr/local/bin/bwa'
 
-start <- Sys.time()
+#start <- Sys.time()
 getbam_align(fastq1, fastq2, reference, SNP.database, samtools.dir, picard.dir, bedtools.dir, GATK.dir, bwa.dir, sample.id, output.dir)
-end <- Sys.time()
+#end <- Sys.time()
 
-write(paste("getbam_align", sample.id, end-start), file="timing.txt", append=TRUE)
+#write(paste("getbam_align", sample.id, end-start), file="timing.txt", append=TRUE)

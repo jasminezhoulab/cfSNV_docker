@@ -17,8 +17,8 @@ GATK.dir <- '/usr/local/bin/GenomeAnalysisTK.jar'
 bwa.dir <- '/usr/local/bin/bwa'
 flash.dir <- '/usr/local/bin/flash2'
 
-start <- Sys.time()
+#start <- Sys.time()
 getbam_align_after_merge(fastq1, fastq2, reference, SNP.database, samtools.dir, picard.dir, bedtools.dir, GATK.dir, bwa.dir, flash.dir, sample.id, output.dir)
-end <- Sys.time()
+#end <- Sys.time()
 
-write(paste("getbam_align_after_merge", sample.id, end-start), file="timing.txt", append=TRUE)
+#swrite(paste("getbam_align_after_merge", sample.id, end-start), file="timing.txt", append=TRUE)

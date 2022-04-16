@@ -16,13 +16,13 @@ roughly_estimated_tf = as.logical(args[9])
 samtools.dir <- '/usr/local/bin/samtools'
 python.dir <- '/usr/local/bin/python'
 
-start <- Sys.time()
+#start <- Sys.time()
 parameter_recommend(
   plasma.unmerged, normal,
   plasma.merged.extendedFrags, plasma.merge.notCombined,
   target.bed, reference, SNP.database, samtools.dir, 
   sample.id, roughly_estimated_tf, python.dir
 )
-end <- Sys.time()
+#end <- Sys.time()
 
-write(paste("parameter_recommend", sample.id, end-start), file="timing.txt", append=TRUE)
+#write(paste("parameter_recommend", sample.id, end-start), file="timing.txt", append=TRUE)
