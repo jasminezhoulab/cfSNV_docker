@@ -30,7 +30,7 @@ results <- variant_calling(
 )
 
 tf.file <- paste0(output.dir, "/", sample.id, ".tumor_fraction.txt")
-cat(paste(sample.id, "tumor fraction:", results$tumor.fraction), file=tf.file)
+cat(paste(sample.id, "tumor fraction:", results$tumor.fraction), file=tf.file, sep="\n")
 
 header.file <- paste0(output.dir, "/", sample.id, ".header")
 cat("##fileformat=VCFv4.2", file=header.file, sep="\n")
