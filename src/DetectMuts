@@ -57,7 +57,7 @@ Rscript --vanilla /usr/local/bin/variant_calling.R $plasma $normal $extended $un
 
 header="${output}/${id}.header"
 table="${output}/${id}.table"
-vcf="${output}/${id}_variant_list.vcf"
+vcf="${output}/${id}.variant_list.vcf"
 cat $header $table > $vcf
 rm -f $header
 rm -f $table
