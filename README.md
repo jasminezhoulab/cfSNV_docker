@@ -77,7 +77,7 @@ cfsnv_container=user_specified_name
 docker run -it -d -v ${local_directory}:${container_directory} --name ${cfsnv_container} ${cfsnv_image} bash
 ```
 
-#### 5.  Run cfSNV Docker container
+#### 5. Run cfSNV Docker container
 
 Then, execute the following line to start the container:
 
@@ -85,7 +85,7 @@ Then, execute the following line to start the container:
 docker exec -it ${cfsnv_container} bash
 ```
 
-####Tips
+#### Tips
 
 1. If users want to remove the existing container and create a new one with the same name, execute:
 
