@@ -16,7 +16,7 @@ Here we present a Docker image of the `cfSNV` package, which is designed such th
 
 There are three main modules in the `cfSNV Docker` package: preprocessing, parameter recommendation, and mutation detection. 
 
-![image-20220417204355671](/Users/huran/Library/Application Support/typora-user-images/image-20220417204355671.png)
+![cfSNV_pipeline](./pic/cfSNV_pipeline.jpg)
 
 The detailed usage of each function can be found using flag `-h` (help). For example, to check how to use `DetectMuts`, type the following command in the container directory `/home/cfSNV`:
 
@@ -27,7 +27,7 @@ The detailed usage of each function can be found using flag `-h` (help). For exa
 which will return:
 
 ```bash
-This function outputs a VCF file of the variant list and a number of tumor fraction.
+This function outputs the variant list to a VCF file and writes the tumor fraction to a TXT file.
 
 Usage: ./DetectMuts -p ${plasma} -n ${normal} -e ${extended} -u ${uncombined} -t ${target} -g ${genome} -d ${database} -i ${id} -mh ${minHold} -mp ${minPass} -o ${output}
 	-p|--plasma a BAM file of the cfDNA sequencing data
@@ -55,7 +55,7 @@ Get Docker from https://docs.docker.com/get-docker/.
 
 #### 2. Download cfSNV Dockerfile
 
-Download our latest `Dockerfile` from https://github.com/jasminezhoulab/cfSNV_docker/releases. Save the `Dockerfile` to your `working_directory=/PATH/TO/DOCKERFILE`
+Download our latest `Dockerfile` from https://github.com/jasminezhoulab/cfSNV_docker/releases. Save the `Dockerfile` to your `working_directory`
 
 #### 3. Create cfSNV Docker image
 
@@ -87,7 +87,7 @@ docker exec -it ${cfsnv_container} bash
 
 ####Tips
 
-1. If you want to remove the existing container and create a new one with the same name, execute:
+1. If users want to remove the existing container and create a new one with the same name, execute:
 
    ```bash
    docker rm -f ${cfsnv_container}

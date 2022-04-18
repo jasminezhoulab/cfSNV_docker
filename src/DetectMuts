@@ -3,7 +3,7 @@ minPass=5
 
 if [ "$1" == "-h" ]; then
 	echo ""
-	echo "This function outputs a VCF file of the variant list and a number of tumor fraction."
+	echo "This function outputs the variant list to a VCF file and writes the tumor fraction to a TXT file."
 	echo ""
 	echo "Usage: ./DetectMuts -p \${plasma} -n \${normal} -e \${extended} -u \${uncombined} -t \${target} -g \${genome} -d \${database} -i \${id} -mh \${minHold} -mp \${minPass} -o \${output}
 	-p|--plasma a BAM file of the cfDNA sequencing data
