@@ -12,39 +12,6 @@ Here we present a Docker image of the `cfSNV` package, which is designed such th
 
 
 
-## Pipeline
-
-There are three main modules in the `cfSNV Docker` package: preprocessing, parameter recommendation, and mutation detection. 
-
-![cfSNV_pipeline](./pic/cfSNV_pipeline.jpg)
-
-The detailed usage of each function can be found using flag `-h` (help). For example, to check how to use `DetectMuts`, type the following command in the container directory `/home/cfSNV`:
-
-```
-./DetectMuts -h
-```
-
-which will return:
-
-```bash
-This function outputs the variant list to a VCF file and writes the tumor fraction to a TXT file.
-
-Usage: ./DetectMuts -p ${plasma} -n ${normal} -e ${extended} -u ${uncombined} -t ${target} -g ${genome} -d ${database} -i ${id} -mh ${minHold} -mp ${minPass} -o ${output}
-	-p|--plasma a BAM file of the cfDNA sequencing data
-	-n|--normal a BAM file of the normal sample sequencing data
-	-e|--extended a BAM file of the combined cfDNA reads
-	-u|--uncombined a BAM file of the cfDNA reads that are not combined
-	-t|--target a BED file of target regions
-	-g|--genome a FASTA file of the reference genome
-	-d|--database a VCF file of the positions that are blocked from mutation calling, e.g. a common SNP database
-	-i|--id a sample ID name
-	-mh|--minHold a minimum number of supporting read pairs that are required for mutations in the HOLD category. Default is 12
-	-mp|--minPass a minimum number of supporting read pairs that are required for mutations in the PASS category. Default is 5
-	-o|--output an output directory for the variant list
-```
-
-
-
 ## Equipment setup
 
 The Docker container can be built and run on most operating systems, including Windows, MacOS, or Linux.
@@ -103,6 +70,39 @@ docker exec -it ${cfsnv_container} bash
 
 
 
+## Pipeline
+
+There are three main modules in the `cfSNV Docker` package: preprocessing, parameter recommendation, and mutation detection. 
+
+![cfSNV_pipeline](./pic/cfSNV_pipeline.jpg)
+
+The detailed usage of each function can be found using flag `-h` (help). For example, to check how to use `DetectMuts`, type the following command in the container directory `/home/cfSNV`:
+
+```
+./DetectMuts -h
+```
+
+which will return:
+
+```bash
+This function outputs the variant list to a VCF file and writes the tumor fraction to a TXT file.
+
+Usage: ./DetectMuts -p ${plasma} -n ${normal} -e ${extended} -u ${uncombined} -t ${target} -g ${genome} -d ${database} -i ${id} -mh ${minHold} -mp ${minPass} -o ${output}
+	-p|--plasma a BAM file of the cfDNA sequencing data
+	-n|--normal a BAM file of the normal sample sequencing data
+	-e|--extended a BAM file of the combined cfDNA reads
+	-u|--uncombined a BAM file of the cfDNA reads that are not combined
+	-t|--target a BED file of target regions
+	-g|--genome a FASTA file of the reference genome
+	-d|--database a VCF file of the positions that are blocked from mutation calling, e.g. a common SNP database
+	-i|--id a sample ID name
+	-mh|--minHold a minimum number of supporting read pairs that are required for mutations in the HOLD category. Default is 12
+	-mp|--minPass a minimum number of supporting read pairs that are required for mutations in the PASS category. Default is 5
+	-o|--output an output directory for the variant list
+```
+
+
+
 ## Example data and test demo data
 
 The example data can be downloaded by executing the script `DownloadEg`:
@@ -126,7 +126,7 @@ The per base coverage of the plasma sample for each genomic region in the target
 average = 149.833, median = 139.046, 95th percentile = 280.356 
 
 The roughly estimated tumor fraction in the plasma sample: 10.025% 
-For a more accurate estimation, please run variant_calling(). 
+For a more accurate estimation, please run DetectMuts. 
 
 Lowest detectable VAF range under the default parameters: [1.783%, 4.28%] 
 
