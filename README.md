@@ -105,13 +105,33 @@ Usage: ./DetectMuts -p ${plasma} -n ${normal} -e ${extended} -u ${uncombined} -t
 
 ## Example data and test demo data
 
+**Example data files**
+
 The example data can be downloaded by executing the script `DownloadEg`:
 
 ```bash
 ./DownloadEg
 ```
 
-The demo data for quick testing is available at https://zenodo.org/record/6450376/files/demo_data.tar.gz. 
+The example reference files can be downloaded through
+
+```bash
+wget https://zenodo.org/record/6450376/files/example_reference_files.tar.gz
+```
+
+**Test demo data files**
+
+The demo data for quick testing can be downloaded through
+
+```bash
+wget https://zenodo.org/record/6450376/files/demo_data.tar.gz
+```
+
+The demo reference files can be downloaded through
+
+```bash
+wget https://zenodo.org/record/6450376/files/demo_reference_files.tar.gz
+```
 
 
 
