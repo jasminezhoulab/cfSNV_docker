@@ -107,10 +107,14 @@ Usage: ./DetectMuts -p ${plasma} -n ${normal} -e ${extended} -u ${uncombined} -t
 
 **Example data files**
 
-The example data can be downloaded by executing the script `DownloadEg`:
+The example data can be downloaded by executing the script `DownloadEg` or through:
 
 ```bash
-./DownloadEg
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR850/ERR850376/ERR850376_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR850/ERR850376/ERR850376_2.fastq.gz
+
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR852/ERR852106/ERR852106_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR852/ERR852106/ERR852106_2.fastq.gz
 ```
 
 The example reference files can be downloaded through
