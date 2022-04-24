@@ -8,7 +8,7 @@
 
 Here we present a Docker image of the `cfSNV` package, which is designed such that researchers and clinicians with a limited computational background can easily carry out analyses on both high-performance computing platforms and local computers.
 
-`cfSNV Docker` can be freely used for educational and research purposes by non-profit institutions and U.S. government agencies only under the UCLA Academic Software License. For information on the use for a commercial purpose or by a commercial or for-profit entity, please contact Prof. Xiangong Jasmine Zhou (https://zhoulab.dgsom.ucla.edu/).
+`cfSNV Docker` can be freely used for educational and research purposes by non-profit institutions and U.S. government agencies only under the UCLA Academic Software License. For information on the use for a commercial purpose or by a commercial or for-profit entity, please contact Prof. Xianghong Jasmine Zhou (XJZhou@mednet.ucla.edu) and Prof. Wenyuan Li (WenyuanLi@mednet.ucla.edu).
 
 
 
