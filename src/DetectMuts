@@ -1,3 +1,5 @@
+#!/bin/bash
+
 minHold=12
 minPass=5
 

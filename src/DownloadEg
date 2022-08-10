@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # download example fastq.gz
 
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR850/ERR850376/ERR850376_1.fastq.gz

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ "$1" == "-h" ]; then
 	echo ""
 	echo "This function maps raw reads from FASTQ (gzip or not) files to the reference genome."
