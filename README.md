@@ -1,47 +1,44 @@
 # cfSNV Docker
 
-
-
 ## Overview
 
-`cfSNV` is an ultra-sensitive and accurate somatic SNV caller designed for cfDNA sequencing. Taking advantage of modern statistical models and machine learning approaches, `cfSNV` provides hierarchical mutation profiling and multi-layer error suppression, including error suppression in read mates, site-level error filtration and read-level error filtration. 
+`cfSNV` is an ultra-sensitive and accurate somatic SNV caller designed for cfDNA sequencing. Taking advantage of modern statistical models and machine learning approaches, `cfSNV` provides hierarchical mutation profiling and multi-layer error suppression, including error suppression in read mates, site-level error filtration and read-level error filtration.
 
 Here we present a Docker image of the `cfSNV` package, which is designed such that researchers and clinicians with a limited computational background can easily carry out analyses on both high-performance computing platforms and local computers.
 
 `cfSNV Docker` can be freely used for educational and research purposes by non-profit institutions and U.S. government agencies only under the UCLA Academic Software License. For information on the use for a commercial purpose or by a commercial or for-profit entity, please contact Prof. Xianghong Jasmine Zhou (XJZhou@mednet.ucla.edu) and Prof. Wenyuan Li (WenyuanLi@mednet.ucla.edu).
 
-
-
 ## Equipment setup
 
 The Docker container can be built and run on most operating systems, including Windows, MacOS, or Linux.
 
-#### 1. Install Docker 
+#### 1. Install Docker
 
 Get Docker from https://docs.docker.com/get-docker/.
 
-#### 2. Download cfSNV Dockerfile
+#### 2. Download cfSNV Docker image
 
-Download our latest `Dockerfile` from https://github.com/jasminezhoulab/cfSNV_docker/releases. Save the `Dockerfile` to your `working_directory`
+Download our latest `cfsnv_image.tar.gz` from https://github.com/jasminezhoulab/cfSNV_docker/releases. Save the docker image to your `working_directory`.
 
-#### 3. Create cfSNV Docker image
+#### 3. Load cfSNV Docker image
 
 After starting the Docker software and enter the `working_directory`, type the following command:
 
 ```bash
-cfsnv_image=user_specified_name
-docker build . –t ${cfsnv_image}
+docker load < cfsnv_image.tar.gz
 ```
+
+The Docker image called `cfsnv_docker` will be loaded. 
 
 #### 4. Create cfSNV Docker container and mount data directory
 
 Users need to specify two directory paths for mounting: (1) a local directory called `local_directory` on the host machine, where all input data are located, and (2) a container directory called `container_directory`, through which the data on the host machine can be accessed in the container. Type the following command:
 
-```	bash
+```bash
 local_directory=/HOST_PATH/TO/INPUT
 container_directory=/CONTAINER_PATH/TO/INPUT
 cfsnv_container=user_specified_name
-docker run -it -d -v ${local_directory}:${container_directory} --name ${cfsnv_container} ${cfsnv_image} bash
+docker run -it -d -v ${local_directory}:${container_directory} --name ${cfsnv_container} cfsnv_docker bash
 ```
 
 #### 5. Run cfSNV Docker container
@@ -61,18 +58,12 @@ docker exec -it ${cfsnv_container} bash
    ```
 
    Then repeat step 4 and 5.
-
-2. If we release a new Dockerfile version, download the new file and rebuild the Docker image by executing:
-
-   ```bash
-   docker build . --no-cache -t ${cfsnv_image}
-   ```
-
+2. If we release a new Docker image version, users should first remove or rename the old Docker image, then download and load the new image.
 
 
 ## Pipeline
 
-There are three main modules in the `cfSNV Docker` package: preprocessing, parameter recommendation, and mutation detection. 
+There are three main modules in the `cfSNV Docker` package: preprocessing, parameter recommendation, and mutation detection.
 
 ![cfSNV_pipeline](./pic/cfSNV_pipeline.jpg)
 
@@ -100,8 +91,6 @@ Usage: ./DetectMuts -p ${plasma} -n ${normal} -e ${extended} -u ${uncombined} -t
 	-mp|--minPass a minimum number of supporting read pairs that are required for mutations in the PASS category. Default is 5
 	-o|--output an output directory for the variant list
 ```
-
-
 
 ## Example data and test demo data
 
@@ -136,8 +125,6 @@ The demo reference files can be downloaded through
 ```bash
 wget https://zenodo.org/record/6450376/files/demo_reference_files.tar.gz
 ```
-
-
 
 ## The demo output
 
@@ -189,9 +176,6 @@ chr22	42899171	.	T	C	13161.69048	PASS	VAF=0.054794520548
 chr22	45723880	.	T	G	246.7265	PASS	VAF=0.069767441860
 ```
 
-
-
 ## Citation
 
 Shuo Li, Zorawar S. Noor, Weihua Zeng, Mary L. Stackpole, Xiaohui Ni, Yonggang Zhou, Zuyang Yuan, Wing Hung Wong, Vatche G. Agopian, Steven M. Dubinett, Frank Alber, Wenyuan Li, Edward B. Garon, and Xianghong J. Zhou. Sensitive detection of tumor mutations from blood and its application to immunotherapy prognosis. Nature Communications. 2021 Jul 7;12(1):4172. doi: 10.1038/s41467-021-24457-2. PMID: 34234141; PMCID: PMC8263778.
-
