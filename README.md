@@ -35,17 +35,17 @@ The Docker image called `cfsnv_docker` will be loaded.
 Users need to specify two directory paths for mounting: (1) a local directory called `local_directory` on the host machine, where all input data are located, and (2) a container directory called `container_directory`, through which the data on the host machine can be accessed in the container. Type the following command:
 
 ```bash
-docker run -it -d -v ${local_directory}:${container_directory} --name ${cfsnv_container} cfsnv_docker bash
+docker run -it -d -v <local_directory>:<container_directory> --name <cfsnv_container> cfsnv_docker bash
 ```
 
-Where `local_directory=/HOST_PATH/TO/INPUT`, `container_directory=/CONTAINER_PATH/TO/INPUT (e.g. /home/cfSNV/demo)`, and `cfsnv_container=user_specified_name`. 
+In this command, please replace `<local_directory>` by a local directory in the host machine (e.g., C:\Documents\cfSNV\demo for Windows and /home/users/cfSNV/demo for Unix), and replace `<container_directory>` by the directory in the docker (e.g. /home/cfSNV/demo), which you may define as what you want, and replace `<cfsnv_container>` with a name as the container's name.
 
 #### 5. Run cfSNV Docker container
 
 Then, execute the following line to start the container:
 
 ```bash
-docker exec -it ${cfsnv_container} bash
+docker exec -it <cfsnv_container> bash
 ```
 
 #### Tips
@@ -53,7 +53,7 @@ docker exec -it ${cfsnv_container} bash
 1. If users want to remove the existing container and create a new one with the same name, execute:
 
    ```bash
-   docker rm -f ${cfsnv_container}
+   docker rm -f <cfsnv_container>
    ```
 
    Then repeat step 4 and 5.
