@@ -22,7 +22,7 @@ Download our latest `cfsnv_image.tar.gz` from https://github.com/jasminezhoulab/
 
 #### 3. Load cfSNV Docker image
 
-After starting the Docker software and enter the `working_directory`, type the following command:
+After starting the Docker software and enter the `working_directory`, type the following command in Unix Terminal or Windows Command Prompt:
 
 ```bash
 docker load < cfsnv_image.tar.gz
@@ -56,7 +56,7 @@ docker exec -it <cfsnv_container> bash
    docker rm -f <cfsnv_container>
    ```
 
-   Then repeat step 4 and 5.
+   where `<cfsnv_container>` is the existing container's name. Then repeat step 4 and 5.
 2. If we release a new Docker image version, users should first remove or rename the old Docker image, then download and load the new image.
 
 
