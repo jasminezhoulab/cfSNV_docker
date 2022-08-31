@@ -38,7 +38,7 @@ Users need to specify two directory paths for mounting: (1) a local directory ca
 docker run -it -d -v <local_directory>:<container_directory> --name <cfsnv_container> cfsnv_docker bash
 ```
 
-In this command, please replace `<local_directory>` by a local directory in the host machine (e.g., C:\Documents\cfSNV\demo for Windows and /home/users/cfSNV/demo for Unix), and replace `<container_directory>` by the directory in the docker (e.g. /home/cfSNV/demo), which you may define as what you want, and replace `<cfsnv_container>` with a name as the container's name.
+In this command, please replace `<local_directory>` with a local directory in the host machine (e.g., C:\Documents\cfSNV\demo for Windows and /home/users/cfSNV/demo for Unix), and replace `<container_directory>` with the directory in the docker (a path name in Linux, e.g. /home/cfSNV/demo), and replace `<cfsnv_container>` with a name as the container's name.
 
 #### 5. Run cfSNV Docker container
 
