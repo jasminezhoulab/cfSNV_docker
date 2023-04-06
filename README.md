@@ -177,4 +177,6 @@ chr22	45723880	.	T	G	246.7265	PASS	VAF=0.069767441860
 
 ## Citation
 
-Shuo Li, Zorawar S. Noor, Weihua Zeng, Mary L. Stackpole, Xiaohui Ni, Yonggang Zhou, Zuyang Yuan, Wing Hung Wong, Vatche G. Agopian, Steven M. Dubinett, Frank Alber, Wenyuan Li, Edward B. Garon, and Xianghong J. Zhou. Sensitive detection of tumor mutations from blood and its application to immunotherapy prognosis. Nature Communications. 2021 Jul 7;12(1):4172. doi: 10.1038/s41467-021-24457-2. PMID: 34234141; PMCID: PMC8263778.
+[1] Li, S., Hu, R., Small, C., Kang, T. Y., Liu, C. C., Zhou, X. J., & Li, W. (2023). cfSNV: a software tool for the sensitive detection of somatic mutations from cell-free DNA. Nature Protocols, 1-21.
+
+[2] Li, S., Noor, Z. S., Zeng, W., Stackpole, M. L., Ni, X., Zhou, Y., ... & Zhou, X. J. (2021). Sensitive detection of tumor mutations from blood and its application to immunotherapy prognosis. Nature communications, 12(1), 4172.
