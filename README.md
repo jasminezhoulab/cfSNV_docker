@@ -11,6 +11,7 @@ Here we present a Docker image of the `cfSNV` package, which is designed such th
 ## Equipment setup
 
 The Docker container can be built and run on most operating systems, including Windows, MacOS, or Linux.
+The Docker image can also be found on Docker Hub at this link: https://hub.docker.com/repository/docker/ranhu/cfsnv-docker/general.
 
 #### 1. Install Docker
 
